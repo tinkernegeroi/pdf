@@ -20,7 +20,7 @@ class Pdf_changer():
         self.lineheight = lineheight
 
 
-    def change_all(self, text_for_field_3: str | None, text_for_field_4_1: str | None, text_for_field_4_2: str | None, text_for_field_5: str | None, text_for_field_25: str | None):
+    def change_all(self, text_for_field_3: str = None, text_for_field_4_1: str = None, text_for_field_4_2: str = None, text_for_field_5: str = None, text_for_field_25: str = None):
         for n in range(0, len(self.doc), 1):
             page = self.doc[n]
 
@@ -32,7 +32,7 @@ class Pdf_changer():
 
             if text_for_field_4_1 is not None:
                 text_from_field_4_1 = self.extract_text(page, self.field_4_1)
-                text_to_extract_4_1 = text_for_field_4_1 + '\n' + text_from_field_4_1
+                text_to_extract_4_1 = text_from_field_4_1 + "/" + text_for_field_4_1
                 self.fill_old_field(page, self.field_4_1)
                 self.write_new_text(page, self.field_4_1, self.fontfile, text_to_extract_4_1)
 

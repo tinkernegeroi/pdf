@@ -1,12 +1,13 @@
 import fitz
 import random
 
+
 class Pdf_changer():
     def __init__(self,
                  pdf_path: str,
                  fontfile: str,
                  fontsize: int = 6,
-                 lineheight: float = 1.0
+                 lineheight: float = 1.2
     ):
         self.doc = fitz.open(pdf_path)
         self.field_3 = fitz.Rect(314.61, 89.73, 570, 200)
